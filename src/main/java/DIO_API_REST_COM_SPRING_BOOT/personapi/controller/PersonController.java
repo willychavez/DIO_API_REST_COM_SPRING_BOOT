@@ -1,11 +1,13 @@
 package DIO_API_REST_COM_SPRING_BOOT.personapi.controller;
 
-import DIO_API_REST_COM_SPRING_BOOT.personapi.dto.MessageResponseDTO;
-import DIO_API_REST_COM_SPRING_BOOT.personapi.entity.Person;
+import DIO_API_REST_COM_SPRING_BOOT.personapi.dto.request.PersonDTO;
+import DIO_API_REST_COM_SPRING_BOOT.personapi.dto.response.MessageResponseDTO;
 import DIO_API_REST_COM_SPRING_BOOT.personapi.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @RestController
@@ -20,7 +22,7 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPerson(@RequestBody Person person){
-        return personService.createPerson(person);
+    public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO){
+        return personService.createPerson(personDTO);
     }
 }

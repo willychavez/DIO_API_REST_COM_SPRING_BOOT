@@ -1,4 +1,4 @@
-package DIO_API_REST_COM_SPRING_BOOT.personapi.dto;
+package DIO_API_REST_COM_SPRING_BOOT.personapi.dto.response;
 
 import lombok.Builder;
 import lombok.Data;
