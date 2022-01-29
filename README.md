@@ -11,3 +11,9 @@ Após executar o comando acima, basta apenas abrir o seguinte endereço e visual
 ```
 http://localhost:8080/api/v1/people
 ```
+
+Para testar o projeto no heroku
+
+```
+https://diowillypeopleapi-live.herokuapp.com/api/v1/people
+```
