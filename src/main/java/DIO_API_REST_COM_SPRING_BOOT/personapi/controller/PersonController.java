@@ -19,7 +19,7 @@ public class PersonController {
     private PersonService personService;
 
     @Autowired
-    public PersonController(PersonService personService) {
+    public PersonController(PersonService personService){
         this.personService = personService;
     }
 
@@ -37,6 +37,11 @@ public class PersonController {
     @GetMapping("/{id}")
     public PersonDTO findById(@PathVariable long id) throws PersonNotFoundException {
         return personService.findById(id);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO updateById(@PathVariable long id, @RequestBody @Valid PersonDTO personDTO) throws PersonNotFoundException {
+        return personService.updateById(id, personDTO);
     }
 
     @DeleteMapping("/{id}")
