@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class personNotFoundException extends Exception {
+public class PersonNotFoundException extends Exception {
 
-    public personNotFoundException(long id) {
+    public PersonNotFoundException(long id) {
         super("Person not found with ID " + id);
     }
 }
