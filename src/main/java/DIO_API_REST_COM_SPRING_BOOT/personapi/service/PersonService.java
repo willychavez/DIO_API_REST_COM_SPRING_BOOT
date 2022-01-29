@@ -41,8 +41,18 @@ public class PersonService {
     }
 
     public PersonDTO findById(long id) throws DIO_API_REST_COM_SPRING_BOOT.personapi.exception.PersonNotFoundException {
-        Person person = personRepository.findById(id)
-                .orElseThrow(() -> new PersonNotFoundException(id));
+        Person person = verifyIfExist(id);
         return personMapper.toDTO(person);
+    }
+
+
+    public void delete(long id) throws PersonNotFoundException {
+        verifyIfExist(id);
+        personRepository.deleteById(id);
+    }
+
+    private Person verifyIfExist(long id) throws PersonNotFoundException {
+        return personRepository.findById(id)
+                .orElseThrow(() -> new PersonNotFoundException(id));
     }
 }
